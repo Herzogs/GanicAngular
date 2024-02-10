@@ -1,0 +1,37 @@
+#banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#bannerTitulo {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#bannerTitulo h1 {
+    color: #ffff;
+    font-weight: bold;
+    font-size: 76px;
+    margin-bottom: 0px;
+    letter-spacing: 46px;
+    text-shadow: 2px 2px 6px #383535ad;
+}
+
+#bannerSubTitulo {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    margin-top: 120px;
+    text-align: center;
+}
+
+#bannerSubTitulo h2 {
+    color: #ffff;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 6px #000000ad;
+}

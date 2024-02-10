@@ -1,0 +1,33 @@
+.nav_style {
+    height: 100px;
+    background-color: #000000;
+    color: #fff;
+}
+
+.nav_style a {
+    padding: 0px 26px;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+
+.nav_style a:hover {
+    text-decoration: underline;
+}
+
+.logo_style {
+    max-width: 80px;
+}
+
+.carrito_styke{
+    display: inline-block;
+    width: 2px;
+    font-size: 30px;
+}
+
+.roundedCarrito{
+    width: 15px;
+    height: 15px;
+}

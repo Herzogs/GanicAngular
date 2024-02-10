@@ -1,0 +1,32 @@
+<div class = "container">
+    <div id="loginbox">
+        <div class="row justify-content-center">
+            <div class="col-6 mt-5" style="background-color: #f7f7f7; padding: 46px;">
+                <form [formGroup]="form" (ngSubmit)="iniciarSecion()">
+                    <h3>Bienvenido! ingresá tus datos</h3>
+                    <hr class="mb-4">
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-circle"
+                            [class.green-icon]="this.form.get('user')?.valid"
+                            [class.red-icon]="this.form.get('user')?.invalid && this.form.get('user')?.touched"></i>
+                        </span>
+                        <input formControlName="user" type="text" class="form-control" placeholder="Ingrese usuario"/>
+                    </div>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text">
+                            <i class="bi bi-key"
+                               [class.green-icon]="this.form.get('pass')?.valid"
+                               [class.red-icon]="this.form.get('pass')?.invalid && this.form.get('pass')?.touched"></i>
+                        </span>
+                        <input formControlName="pass" type="password" class="form-control" placeholder="Ingrese password"/>
+                    </div>
+                    <div class="d-grid">
+                        <button [disabled]="this.form.invalid" class="btn btn-success mt-3 mb-4" type="Submit">Ingresar</button>
+                        <a routerLink="/registrar" class="btn btn-primary">Registrarme</a>
+                        <a routerLink="/recuperar" class="btn btn-link">Olvidé mi contraseña</a>
+                    </div>
+             </form>
+        </div>
+    </div>
+</div>

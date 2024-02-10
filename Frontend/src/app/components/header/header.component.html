@@ -1,0 +1,35 @@
+<nav class="nav_style d-flex align-items-center">
+    <div class="container">
+        <div class="text-center">
+            <a routerLink="/home"><img src="./assets/img/ganiclogo.png" class="img-fluid logo_style" alt="Logo"></a>
+            <a routerLink="/home">Home</a>
+            <a routerLink="/contacto">Contacto</a>
+            <a routerLink="/nosotros">Nosotros</a>
+            <span class="dropdown ps-5">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Mi perfil
+                </button>
+                <ul class="dropdown-menu">
+                    <div *ngIf="!this.isLogged();else loggedBlock">
+                        <li><a class="dropdown-item text-dark py-2" routerLink="/login">Login</a></li>
+                        <li><a class="dropdown-item text-dark py-2" routerLink="/registrar">Registrar</a></li>
+                    </div>
+                    <ng-template #loggedBlock>
+                        <li><a class="dropdown-item text-dark py-2" routerLink="/misdatos">Mis datos</a></li>
+                        <li><a class="dropdown-item text-dark py-2" routerLink="/historial">Historial</a></li>
+                        <li><a class="dropdown-item text-dark py-2" routerLink="/home" (click)="this.salir()">Salir</a></li>
+                    </ng-template>
+                </ul>
+            </span>
+            
+                <a *ngIf="this.isLogged()" routerLink="/carrito" style="position: relative;">
+                    <span *ngIf="this.obtenerCantidadProductos() > 0" 
+                           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger roundedCarrito">
+                           <span class="visually-hidden">New alerts</span>
+                    </span>
+                    <i class="bi bi-cart-fill carrito_styke"></i>
+                </a>
+            
+        </div>
+    </div>
+</nav>

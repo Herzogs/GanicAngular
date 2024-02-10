@@ -1,0 +1,36 @@
+<section>
+    <div class="container py-5">
+        <h3 class="pt-5 pb-3">Datos del Pedido</h3>
+        <div class="row">
+            <div class="col-6">
+                <div class="card" style="max-width: 400px;">
+                    <img src="../assets/img/pedido.png" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                        <div *ngFor="let item of listaProductos">
+                            <p class="card-text fw-bold">Producto: <span class="fw-normal">{{item.nombre}}</span></p>
+                            <p class="card-text fw-bold">Descripción: <span class="fw-normal">{{item.descripcion}}</span></p>
+                            <p class="card-text fw-bold">Clasificación: <span class="fw-normal">{{item.clasificacion}}</span></p>
+                            <p class="card-text">Precio: <span class="fw-bold ps-5">{{item.precio}}</span></p>
+                            <hr class="my-3"/>
+                        </div>
+                        <p class="card-text"><span class="fw-bold">Dirección Envio:</span> Peribebuy 3667</p>
+                        <p class="card-text fw-bold text-end">Monto de su pedido: <span
+                                class="text-primary">{{this.obtenerMonto()}}</span></p>
+                        <p class="card-text fw-bold text-end">Total a Pagar: <span
+                                class="text-primary">{{this.obtenerMonto()}}</span></p>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="col-6">
+                <h3 class="p-0 m-0">Confirmar pago</h3>
+                <div><a routerLink="/crearPedido" class="btn btn-success px-5 my-5">Seguir Comprando</a></div>
+                <div>
+                    <button (click)="generarOrdenPago()" class="btn btn-success px-5 my-5">Confirmar Compra</button>
+                    <a [class.disabled]="this.desabilitarBoton ? null: true" [href]="this.init_point" class="btn btn-success px-5 my-5">Pagar</a>
+                </div>
+                <div><a routerLink="/home" (click)="vaciarCarro()" class="btn btn-secondary px-5 my-3">Cancelar Compra</a></div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+
+<section class="text-center">
+    <img src="./assets/img/bannerganccic222.png" class="img-fluid" alt="bannerganccic">
+</section>
+
+<section>
+    <div class="container py-5">
+        <div class="row g-4">
+            <h3 class="mb-2">Genere su pedido</h3>
+            <h4 class="my-1">Filtrar por preferencia:</h4>
+            <form [formGroup]="form" (ngSubmit)="actualizarPreferencia()" method="POST" class="d-flex m-0">
+                <select formControlName="preferencia" class="form-select w-auto">
+                    <option *ngFor="let pref of Preferencias" [ngValue]="pref">{{pref}}</option>
+                </select>
+                <button class="btn btn-primary ms-2" Type="Submit">Filtrar</button>
+            </form>
+            <app-sandwitch class="col-md-6" *ngFor="let prod of listaSandwitches" [prod]="prod"></app-sandwitch>
+        </div>
+        <a routerLink="/home" class="btn btn-primary px-5 my-5">Volver al Home</a>
+        <a routerLink="/confirmar" class="btn btn-success px-5 my-5"> Ver Pedido
+                <span class="badge bg-secondary ms-2">{{this.obtenerLongitudCarrito()}}</span>
+        </a>
+        
+    </div>
+</section>

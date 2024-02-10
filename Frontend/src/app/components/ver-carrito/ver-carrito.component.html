@@ -1,0 +1,30 @@
+<section>
+    <div class="container">
+        <div class="row mb-5">
+            <h2 class="mt-5 mb-3"><i class="bi bi-bag-heart text-primary mx-2"></i> Mis productos:</h2>
+            <div class="col-4 g-5 h-100">
+                <div class="card h-100" >
+                    <img src="./assets/img/carritox.png" class="card-img-top" alt="banner compra">
+                    <div class="card-body">
+                        <div *ngFor="let item of listaCarrito">
+                            <p class="card-text fw-bold">Producto: <span class="fw-normal">{{item.nombre}}</span></p>
+                            <p class="card-text fw-bold">Descripción: <span class="fw-normal">{{item.descripcion}}</span></p>
+                            <p class="card-text">Precio: <span class="fw-bold ps-5">{{item.precio}}</span></p>
+                            <button (click)="eliminarDelCarro(item)" class="btn btn-danger">Eliminar del carrito</button>
+                            <hr class="my-3"/>
+                        </div>
+                    </div>
+                    <p>Monto Total: <span class="ps-5">{{this.obtenerTotal()}}</span></p>
+                </div>
+            
+                <div class="py-5 text-end">
+                    <div class="pb-5 pt-3 d-flex justify-content-between">
+                        <button class="btn btn-danger px-5" (click)="this.vaciarCarro()">Vaciar Carro</button>
+                        <a routerLink="/home" class="btn btn-primary ms-4 px-5" type="button">Seguir comprando</a>
+                        <a routerLink="/confirmar" class="btn btn-success px-5 ms-4" type="button">Pagar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

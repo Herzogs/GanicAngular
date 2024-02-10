@@ -1,0 +1,30 @@
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 mt-5" style="background-color: #f7f7f7; padding: 46px;">
+            <form [formGroup]="form" (ngSubmit)="recuperarContrasenia()">
+                <h3>Recuperar tu Contraseña</h3>
+                <hr class="mb-4">
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="bi bi-person-circle"
+                        [class.green-icon]="this.form.get('user')?.valid"
+                        [class.red-icon]="this.form.get('user')?.invalid && this.form.get('user')?.touched"></i>
+                    </span>
+                    <input formControlName="user" type="text" class="form-control" placeholder="Ingrese usuario"/>
+                </div>
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="bi bi-envelope"
+                        [class.green-icon]="this.form.get('email')?.valid"
+                        [class.red-icon]="this.form.get('email')?.invalid && this.form.get('email')?.touched"></i>
+                    </span>
+                    <input formControlName="email" type="email" class="form-control" placeholder="Ingrese correo"/>
+                </div>
+                <div class="d-grid">
+                    <button [disabled]="this.form.invalid" class="btn btn-success mt-3 mb-4" type="Submit">Recuperar</button>
+                    <a routerLink="/home" class="btn btn-primary">Home</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
