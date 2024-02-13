@@ -26,6 +26,9 @@ import { VerCarritoComponent } from './components/ver-carrito/ver-carrito.compon
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { AgregarSandwichComponent } from './components/agregar-sandwich/agregar-sandwich.component';
 import { CompraRealizadaComponent } from './components/compra-realizada/compra-realizada.component';
+import { MisdatosComponent } from './components/misdatos/misdatos.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { CompraRealizadaComponent } from './components/compra-realizada/compra-r
     RecuperarComponent,
     AgregarSandwichComponent,
     CompraRealizadaComponent,
+    MisdatosComponent,
+    ContactoComponent,
+    NosotrosComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ export interface IUsuario {
   apellido: string
   direccion: string
   habilitado: boolean
+  rol: string
 }
 
 export type IUsuarioInput = Omit<IUsuario, 'id' | 'habilitado'>

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { IProducto, IProductoCreado } from 'src/app/interfaces/productos';
+import { IProductoCreado } from 'src/app/interfaces/productos';
 import { SandwitchService } from 'src/app/services/sandwitch.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class AgregarSandwichComponent {
   constructor(
      private formBuilder: FormBuilder,
      private _sandwitchService: SandwitchService,
-     private Toast: ToastrService
+     private Toast: ToastrService,
+     private router: Router
   ) { 
     this.form = this.formBuilder.group({
       nombre: ['',[Validators.required, Validators.minLength(3)]],
@@ -41,13 +43,17 @@ export class AgregarSandwichComponent {
     }
     const formData = new FormData();
     formData.append('imagen', this.selectedFile);
-    this._sandwitchService.crearSandwich({ producto: nuevoProducto, imagen: formData }).subscribe(data => {
-      console.log(data);
-      this.Toast.success('Producto creado correctamente', 'Producto creado');
-    }, (error: any) => {
-      console.log(error);
-      this.Toast.error('Error al crear el producto', 'Error');
+    this._sandwitchService.crearSandwich({ producto: nuevoProducto, imagen: formData }).subscribe({
+      next: _data => {
+        this.Toast.success('Producto creado correctamente, Redirigiendo ...', 'Producto creado');
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+        }, 1000);
+      },
+      error: (error: any) => {
+        console.log(error?.mensaje);
+        this.Toast.error('Error al crear el producto', 'Error');
+      }
     });
   }
-
 }

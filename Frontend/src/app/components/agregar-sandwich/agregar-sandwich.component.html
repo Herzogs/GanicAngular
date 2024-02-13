@@ -1,39 +1,36 @@
-<div class = "container">
+<div class="container">
     <div id="loginbox">
         <div class="row justify-content-center">
-            <div class="col-6 mt-5" style="background-color: #f7f7f7; padding: 46px;">
+            <div class="col-6 mt-3 mb-2" style="background-color: #4e4e4e11; padding: 46px;">
                 <form [formGroup]="form" (ngSubmit)="agregarSandwich()">
                     <h3>Agregue nuevo Sandwitch</h3>
                     <hr class="mb-4">
-                    <div class="input-group input-group-lg mb-3">
-                        <span class="input-group-text">
-                           <label for="">Nombre</label>
-                        </span>
-                        <input formControlName="nombre" type="text" class="form-control" placeholder="Ingrese Nombre"/>
-                    </div>
-                    <div class="input-group input-group-lg mb-3">
-                        <label for="">Descripcion</label>
-                        <textarea formControlName="descripcion" name="descripcion" cols="30" rows="10" placeholder="Ingrese descripcion"></textarea>
-                    </div>
-                    <div class="input-group input-group-lg mb-3">
-                        <label>Clasificación</label>
-                        <select formControlName="preferencia" class="form-select w-auto">
-                            <option *ngFor="let pref of Preferencias" [ngValue]="pref">{{pref}}</option>
-                        </select>
-                    </div>
-                    <div class="input-group input-group-lg mb-3">
-                       <label>Precio:</label>
-                        <input formControlName="precio" type="number" class="form-control" placeholder="Ingrese precio"/>
-                    </div>
-                    <div class="input-group input-group-lg mb-3">
-                        <label>Imagen:</label>
-                        <input type="file" class="form-control" (change)="imagenSeleccionada($event)" placeholder="Ingrese imagen"/>
-                    </div>
+
+                    <label class="form-label mt-3" for="">Nombre</label>
+                    <input formControlName="nombre" type="text" class="form-control" placeholder="Ingrese Nombre" />
+                    <label class="form-label mt-3" for="">Descripcion</label>
+                    <textarea formControlName="descripcion" class="form-control" name="descripcion" rows="3"
+                        placeholder="Ingrese descripcion"></textarea>
+
+                    <label class="form-label mt-3">Clasificación</label>
+                    <select formControlName="preferencia" class="form-select">
+                        <option *ngFor="let pref of Preferencias" [ngValue]="pref">{{pref}}</option>
+                    </select>
+                    <label class="form-label mt-3">Precio:</label>
+                    <input formControlName="precio" type="number" class="form-control" placeholder="Ingrese precio" />
+
+
+                    <label class="form-label mt-3">Imagen:</label>
+                    <input type="file" class="form-control" (change)="imagenSeleccionada($event)"
+                        placeholder="Ingrese imagen" />
+
                     <div class="d-grid">
-                        <button [disabled]="this.form.invalid" class="btn btn-success mt-3 mb-4" type="Submit">Agregar</button>
+                        <button [disabled]="this.form.invalid" class="btn btn-success mt-3 mb-4"
+                            type="Submit">Agregar</button>
                         <a routerLink="/home" class="btn btn-primary">Home</a>
                     </div>
                 </form>
+            </div>
         </div>
     </div>
 </div>

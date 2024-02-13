@@ -24,7 +24,7 @@ const logearUsuario = async (user: string, pass: string): Promise<string> => {
         throw new Error('Contraseña incorrecta')
       }
       const token = jwt.sign({
-        id: usuarioEncontrado.nombre
+        rol: usuarioEncontrado.rol
       }, process.env.JWT_SECRET as string)
       return token
     })

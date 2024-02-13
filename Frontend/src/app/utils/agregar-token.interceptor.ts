@@ -31,10 +31,11 @@ export class AgregarTokenInterceptor implements HttpInterceptor {
 
   private handleError(err: HttpErrorResponse): Observable<HttpEvent<unknown>> {
     if (err.status === 401) {
+      console.log(err);
       this.toastr.error('No tiene permisos para realizar esta acción', 'Error');
-      this.router.navigate(['/login']);
+      localStorage.removeItem('token')
+      this.router.navigate(['/Login']);
     }
-    // this.toastr.error(err.error.mensaje as string, 'Error');
     return throwError(() => err);
   }
 }

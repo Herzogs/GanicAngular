@@ -41,6 +41,12 @@ dependencies:
   jquery:
     specifier: ^3.7.1
     version: 3.7.1
+  jwt-decode:
+    specifier: ^4.0.0
+    version: 4.0.0
+  mapkick:
+    specifier: ^0.2.6
+    version: 0.2.6
   ngx-toastr:
     specifier: ^17.0.2
     version: 17.0.2(@angular/common@16.2.9)(@angular/core@16.2.9)(@angular/platform-browser@16.2.9)
@@ -4715,6 +4721,11 @@ packages:
     engines: {'0': node >= 0.2.0}
     dev: true
 
+  /jwt-decode@4.0.0:
+    resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
+    engines: {node: '>=18'}
+    dev: false
+
   /karma-chrome-launcher@3.2.0:
     resolution: {integrity: sha512-rE9RkUPI7I9mAxByQWkGJFXfFD6lE4gC5nPuZdobf/QdTEJI6EU4yIay/cfU/xV4ZxlM5JiTv7zWYgA64NpS5Q==}
     dependencies:
@@ -4997,6 +5008,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /mapkick@0.2.6:
+    resolution: {integrity: sha512-sDfPCOhTpQrzJc3Yzwg5XOBy5o2TTNEfH2dG2QZM7RUtfQzhY+xErfhQHrQvSOaWbf4zOegPq/dhaWuv2fo4CA==}
+    dev: false
 
   /media-typer@0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}

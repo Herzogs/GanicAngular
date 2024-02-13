@@ -44,9 +44,6 @@ export class LoginComponent implements OnInit {
       },
       error: (error) => {
         this.Toastr.error('Usuario o contraseña incorrectos', 'Error');
-      },
-      complete: () => {
-        console.log('Finalizado');
       }
     })
     this.form.reset();

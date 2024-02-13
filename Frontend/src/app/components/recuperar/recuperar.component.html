@@ -20,8 +20,8 @@
                     </span>
                     <input formControlName="email" type="email" class="form-control" placeholder="Ingrese correo"/>
                 </div>
-                <div class="d-grid">
-                    <button [disabled]="this.form.invalid" class="btn btn-success mt-3 mb-4" type="Submit">Recuperar</button>
+                <div class="d-flex flex-row justify-content-center gap-2 my-10">
+                    <button [disabled]="this.form.invalid" class="btn btn-success" type="Submit">Recuperar</button>
                     <a routerLink="/home" class="btn btn-primary">Home</a>
                 </div>
             </form>

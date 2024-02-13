@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ITarjeta, IUsuario, IUsuarioLogin, IUsuarioRecuperacion } from '../interfaces/usuario';
+import { IUsuario, IUsuarioLogin, IUsuarioRecuperacion } from '../interfaces/usuario';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -25,16 +25,8 @@ export class UsuarioService {
     return this.http.post<string>(`${this.myAppUrl}${this.myApiUrl}logear`, usuario);
   }
 
-  obtenerMetodoPago(id: number): Observable<ITarjeta> {
-    return this.http.get<ITarjeta>(`${this.myAppUrl}${this.myApiUrl}obtenerMetodoPago`, {params: {id: id.toString()}});
-  }
-
   isLogged(): boolean {
     return localStorage.getItem('token') ? true : false;
-  }
-
-  desloguear(): void {
-    localStorage.removeItem('token');
   }
 
   recuperarContrasenia(usuario: IUsuarioRecuperacion): Observable<string> {

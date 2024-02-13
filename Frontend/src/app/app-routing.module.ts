@@ -12,6 +12,12 @@ import { VerCarritoComponent } from './components/ver-carrito/ver-carrito.compon
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { AgregarSandwichComponent } from './components/agregar-sandwich/agregar-sandwich.component';
 import { CompraRealizadaComponent } from './components/compra-realizada/compra-realizada.component';
+import { verCarroGuard } from './guards/ver-carro.guard';
+import { ingresarSandwichGuard } from './guards/ingresar-sandwich.guard';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { MisdatosComponent } from './components/misdatos/misdatos.component';
+
 
 
 const routes: Routes = [
@@ -20,11 +26,14 @@ const routes: Routes = [
   { path: "login", providers: [UsuarioService], component: LoginComponent},
   { path: "recuperar", component: RecuperarComponent },
   { path: "registrar", providers: [UsuarioService], component: RegistroComponent },
-  { path: "crearPedido", canActivate: [authGuard], canDeactivate: [carroConElementosGuard], component: SeleccionSandwitchComponent },
+  { path: "crearpedido", canActivate: [authGuard], canDeactivate:[carroConElementosGuard], component: SeleccionSandwitchComponent },
   { path: "confirmar", canActivate: [authGuard], component: ConfirmarCompraComponent },
-  { path: "carrito", canActivate: [authGuard],component: VerCarritoComponent },
-  { path: "agregarSandwich", component: AgregarSandwichComponent },
-  { path: "compraRealizada", canActivate: [authGuard], component: CompraRealizadaComponent },
+  { path: "carrito", canActivate: [authGuard, verCarroGuard],component: VerCarritoComponent },
+  { path: "agregarsandwich", canActivate: [authGuard, ingresarSandwichGuard], component: AgregarSandwichComponent },
+  { path: "comprarealizada", canActivate: [authGuard], component: CompraRealizadaComponent },
+  { path: "nosotros", component: NosotrosComponent},
+  { path: "contacto", component: ContactoComponent},
+  { path: "misdatos", canActivate: [authGuard], component: MisdatosComponent },
   { path: "**", redirectTo: "home", pathMatch: "full"}
 ];
 

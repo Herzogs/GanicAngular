@@ -24,12 +24,11 @@
             </div>
             <div class="col-6">
                 <h3 class="p-0 m-0">Confirmar pago</h3>
-                <div><a routerLink="/crearPedido" class="btn btn-success px-5 my-5">Seguir Comprando</a></div>
-                <div>
-                    <button (click)="generarOrdenPago()" class="btn btn-success px-5 my-5">Confirmar Compra</button>
-                    <a [class.disabled]="this.desabilitarBoton ? null: true" [href]="this.init_point" class="btn btn-success px-5 my-5">Pagar</a>
+                <div class="d-flex flex-column gap-2 my-2" style="max-width: 200px;">
+                    <a routerLink="/crearpedido" class="btn btn-success">Seguir Comprando</a>
+                    <a routerLink="/carrito" class="btn btn-success">Ir al Carrito</a>
+                    <a routerLink="/home" (click)="vaciarCarro()" class="btn btn-danger">Cancelar Compra</a>
                 </div>
-                <div><a routerLink="/home" (click)="vaciarCarro()" class="btn btn-secondary px-5 my-3">Cancelar Compra</a></div>
             </div>
         </div>
     </div>

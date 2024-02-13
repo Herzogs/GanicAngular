@@ -7,7 +7,7 @@ import { upload } from '../helpers/salvarImages'
 
 const router = Router()
 
-router.get('/listarSandwitch', validarToken, obtenerSandwitch)
+router.get('/listarSandwitch', obtenerSandwitch)
 
 router.get('/obtenerSandwitch', validarToken, [
   check('id')

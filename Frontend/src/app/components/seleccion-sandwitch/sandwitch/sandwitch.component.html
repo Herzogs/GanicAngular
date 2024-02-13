@@ -1,12 +1,12 @@
 <div class="card">
-    <img class="" src="http://localhost:3000/static/{{ prod.imagen }}" alt="Product image">
+    <img class="img-fluid" src="http://localhost:3000/static/{{ prod.imagen }}" alt="Product image">
 
     <div class="card-body">
       <h5>{{ prod.nombre }}</h5> 
         <p>{{ prod.descripcion }}</p>
       <p><b>Precio: </b>${{ prod.precio }}</p>
 
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <div class="d-flex gap-2 d-md-flex justify-content-md-end">
         <button (click)="agregarSandwitchAlCarrito()" class="btn btn-success px-3 my-3" type="button">
             <i class="bi bi-basket"></i>
         </button>

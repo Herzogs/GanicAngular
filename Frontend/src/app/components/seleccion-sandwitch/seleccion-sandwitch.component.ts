@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IProducto } from 'src/app/interfaces/productos';
@@ -22,7 +23,8 @@ export class SeleccionSandwitchComponent implements OnInit{
                private formBuilder: FormBuilder,
                private _sandwitchService: SandwitchService,
                private _carritoService: CarritoService,
-               private Toast: ToastrService
+               private Toast: ToastrService,
+               private router: Router
              ) {        
     this.form = this.formBuilder.group({
       preferencia: ['', Validators.required]
@@ -32,8 +34,9 @@ export class SeleccionSandwitchComponent implements OnInit{
   ngOnInit(): void {
     this._sandwitchService.getSandwitches().subscribe({
       next: (v) => this.listaSandwitches = v,
-      error: (e: HttpErrorResponse) => this.Toast.error(e.error.mensaje),
-      complete: () => console.info('complete')
+      error: (e: HttpErrorResponse) => {
+        this.Toast.error(e.error.error as string);
+      },
     });
   }
 
@@ -44,8 +47,9 @@ export class SeleccionSandwitchComponent implements OnInit{
     }
     this._sandwitchService.getSandwitchesPreferencia(this.form.get('preferencia')?.value).subscribe({
       next: (v) => this.listaSandwitches = v,
-      error: (e: HttpErrorResponse) => this.Toast.error(e.error.mensaje),
-      complete: () => console.info('complete') 
+      error: (e: HttpErrorResponse) => {
+        this.Toast.error(e.error.mensaje as string);
+      }
     });
   }
 

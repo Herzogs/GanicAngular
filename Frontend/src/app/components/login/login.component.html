@@ -1,7 +1,7 @@
 <div class = "container">
     <div id="loginbox">
         <div class="row justify-content-center">
-            <div class="col-6 mt-5" style="background-color: #f7f7f7; padding: 46px;">
+            <div class="col-6 mt-3" style="background-color: #f7f7f7; padding: 30px;">
                 <form [formGroup]="form" (ngSubmit)="iniciarSecion()">
                     <h3>Bienvenido! ingresá tus datos</h3>
                     <hr class="mb-4">
@@ -21,12 +21,14 @@
                         </span>
                         <input formControlName="pass" type="password" class="form-control" placeholder="Ingrese password"/>
                     </div>
-                    <div class="d-grid">
-                        <button [disabled]="this.form.invalid" class="btn btn-success mt-3 mb-4" type="Submit">Ingresar</button>
+                    <div class="d-flex flex-row justify-content-center gap-2 my-2">
+                        <button [disabled]="this.form.invalid" class="btn btn-success" type="Submit">Ingresar</button>
                         <a routerLink="/registrar" class="btn btn-primary">Registrarme</a>
-                        <a routerLink="/recuperar" class="btn btn-link">Olvidé mi contraseña</a>
                     </div>
-             </form>
+                </form>
+                <div class="text-center">
+                    <a routerLink="/recuperar" class="btn btn-link">Olvidé mi contraseña</a>
+                </div>
         </div>
     </div>
 </div>
